@@ -1,4 +1,4 @@
-# Simple IDE
+# IDEO - Simple IDE
 
 This is a simple Integrated Development Environment (IDE) built using PyQt5 in Python. It provides a code editor with syntax highlighting, line numbers, auto-indentation, brace matching, and other features. It also includes a terminal emulator for executing commands and running code.
 
@@ -17,6 +17,7 @@ This is a simple Integrated Development Environment (IDE) built using PyQt5 in P
 - File tree view for navigating and opening files
 - Ability to save and open files
 - Dark and light themes
+- AI Chatbot BARD and ChatGPT integration.
 
 ## Usage
 
