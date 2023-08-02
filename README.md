@@ -2,7 +2,8 @@
 
 This is a simple Integrated Development Environment (IDE) built using PyQt5 in Python. It provides a code editor with syntax highlighting, line numbers, auto-indentation, brace matching, and other features. It also includes a terminal emulator for executing commands and running code.
 
-![Simple IDE Screenshot](screenshot.png)
+![Dark Theme Screenshot](https://raw.githubusercontent.com/87nehal/Ideo/main/Dark.ss.png)
+![Light Theme Screenshot](https://raw.githubusercontent.com/87nehal/Ideo/main/Lightss.png)
 
 ## Features
 
