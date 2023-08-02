@@ -4,6 +4,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from code_editor import CodeEditor
 from terminal_emulator import TerminalEmulator, CommandLineEdit
+from ai_sidebar import ModelAssistant
 
 class IDE(QMainWindow):
     def __init__(self):
@@ -31,10 +32,18 @@ class IDE(QMainWindow):
 
         self.file_tree.hide()
 
+        self.right_sidebar = QVBoxLayout()  
+        self.model_assistant = ModelAssistant() 
+        self.right_sidebar.addWidget(self.model_assistant)  
+
+        self.ai_widget = QWidget()
+        self.ai_widget.setLayout(self.right_sidebar) 
+
         splitter1 = QSplitter(Qt.Horizontal)
         splitter1.addWidget(self.file_tree)
         splitter1.addWidget(self.tab_widget)
-        splitter1.setSizes([100, 900])
+        splitter1.addWidget(self.ai_widget)  
+        splitter1.setSizes([300, 700, 100]) 
 
         splitter2 = QSplitter(Qt.Vertical)
         splitter2.addWidget(splitter1)
@@ -109,7 +118,6 @@ class IDE(QMainWindow):
 
         self.theme_combo.currentTextChanged.connect(self.change_theme)
         toolbar.addWidget(self.theme_combo)
-
 
         self.setWindowTitle("Simple IDE")
         self.show()
@@ -340,8 +348,8 @@ class IDE(QMainWindow):
 
     def change_theme(self, theme):
         if theme == 'Dark':
-            self.load_theme('C:/Users/root/Desktop/Project/Editor/dark.css')
+            self.load_theme('Themes/dark.css')
         elif theme == 'Light':
-            self.load_theme('C:/Users/root/Desktop/Project/Editor/light.css')
+            self.load_theme('Themes/light.css')
         self.settings.setValue('last_theme', theme)  # Save last theme
 
