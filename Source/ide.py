@@ -322,9 +322,16 @@ class IDE(QMainWindow):
         if index >= 0 and index < len(self.filenames):
             if self.filenames[index] is None:
                 return not bool(self.editors[index].text())
-            with open(self.filenames[index], 'r', encoding='utf-8', errors='ignore') as f:
-                return f.read() == self.editors[index].text()
+            with open(self.filenames[index], 'r', errors='ignore') as f:
+                file_text = f.read()
+                editor_text = self.editors[index].text()
+                # Normalize newline characters and strip whitespaces
+                file_text = file_text.replace('\r\n', '\n').strip()
+                editor_text = editor_text.replace('\r\n', '\n').strip()
+                return file_text == editor_text
         return True  # Return True if index is out of range
+
+
 
 
     def closeEvent(self, event):
