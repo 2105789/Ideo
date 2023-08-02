@@ -1,0 +1,125 @@
+/* General widget styling */
+QWidget {
+    background-color: #393646;
+    color: #F4EEE0;
+    font-family: "Segoe UI";
+    font-size: 12px;
+}
+
+/* Styling for buttons */
+QPushButton {
+    background-color: #4F4557;
+    border: none;
+    color: #F4EEE0;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 4px 2px;
+    border-radius: 5px;
+}
+
+QPushButton:hover {
+    background-color: #6D5D6E;
+}
+
+/* Styling for line edits */
+QLineEdit {
+    background-color: #4F4557;
+    color: #F4EEE0;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Styling for text edits */
+QTextEdit {
+    background-color: #4F4557;
+    color: #F4EEE0;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Styling for labels */
+QLabel {
+    color: #F4EEE0;
+}
+
+/* Styling for menus and menu items */
+QMenu {
+    background-color: #4F4557;
+    color: #F4EEE0;
+    border: none;
+    margin: 0px;
+}
+
+QMenu::item {
+    background-color: transparent;
+}
+
+QMenu::item:selected {
+    background-color: #6D5D6E;
+}
+
+/* Styling for scroll bars */
+QScrollBar:vertical {
+    background-color: #4F4557;
+    width: 15px;
+    margin: 15px 0 15px 0;
+    border: 1px transparent #2A2929;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:vertical {
+    background-color: #6D5D6E;
+    min-height: 5px;
+    border-radius: 4px;
+}
+
+QScrollBar::add-line:vertical {
+    margin: 0px 3px 0px 3px;
+    border-image: url(:/qss_icons/rc/down_arrow_disabled.png);
+    height: 10px;
+    width: 10px;
+}
+
+QScrollBar::sub-line:vertical {
+    margin: 0px 3px 0px 3px;
+    border-image: url(:/qss_icons/rc/up_arrow_disabled.png);
+    height: 10px;
+    width: 10px;
+}
+
+QScrollBar:horizontal {
+    background-color: #4F4557;
+    height: 15px;
+    margin: 0px 15px 0px 15px;
+    border: 1px transparent #2A2929;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:horizontal {
+    background-color: #6D5D6E;
+    min-width: 5px;
+    border-radius: 4px;
+}
+
+QScrollBar::add-line:horizontal {
+    margin: 0px 3px 0px 3px;
+    border-image: url(:/qss_icons/rc/right_arrow_disabled.png);
+    width: 10px;
+    height: 10px;
+}
+
+QScrollBar::sub-line:horizontal {
+    margin: 0px 3px 0px 3px;
+    border-image: url(:/qss_icons/rc/left_arrow_disabled.png);
+    height: 10px;
+    width: 10px;
+}
+/* General toolbar styling */
+QToolBar{
+    border: none;
+    background: #393646;
+}

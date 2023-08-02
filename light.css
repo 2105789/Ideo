@@ -1,0 +1,265 @@
+/* Light theme */
+
+/* General widget styling */
+QWidget {
+  background-color: #f4f4f4;
+  color: #333333;
+  font-family: "Segoe UI";
+  font-size: 12px;
+}
+
+/* Styling for buttons */
+QPushButton {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  color: #333333;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;  
+  margin: 4px 2px;
+  border-radius: 5px;  
+}
+
+QPushButton:hover {
+  background-color: #e6e6e6;
+}
+
+QPushButton:pressed {
+  background-color: #d9d9d9;
+}
+
+/* Styling for line edits */
+QLineEdit {
+  background-color: #ffffff;
+  color: #333333;
+  border: 1px solid #cccccc;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* Styling for text edits */
+QTextEdit {
+  background-color: #ffffff;
+  color: #333333;
+  border: 1px solid #cccccc;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* Styling for labels */
+QLabel {
+  color: #333333;
+}
+
+/* Styling for menus and menu items */
+QMenu {
+  background-color: #ffffff;
+  color: #333333;
+  border: 1px solid #cccccc;
+  margin: 0px;
+}
+
+QMenu::item {
+  background-color: transparent; 
+}
+
+QMenu::item:selected {
+  background-color: #e6e6e6;
+}
+
+/* Styling for status bars */
+QStatusBar {
+  background-color: #ffffff;
+  color: #333333;  
+}
+
+/* Styling for dock widgets */
+QDockWidget {
+  background-color: #f4f4f4;
+  color: #333333;
+  border: 1px solid #cccccc;
+}
+
+/* Styling for tab widgets */
+QTabWidget::pane {
+  background-color: #f4f4f4;
+  border: 1px solid #cccccc;
+}
+
+QTabBar::tab {
+  background-color: #f4f4f4;
+  color: #333333;
+  padding: 5px;
+  border: 1px solid #cccccc;
+}
+
+QTabBar::tab:selected {
+  background-color: #ffffff;
+}
+
+/* Styling for scroll bars */ 
+QScrollBar:vertical {
+  background-color: #ffffff;
+  width: 15px;
+  margin: 15px 0 15px 0;
+  border: 1px solid #cccccc;
+  border-radius: 4px;  
+}
+
+QScrollBar::handle:vertical {
+  background-color: #e6e6e6;
+  min-height: 5px;
+  border-radius: 4px;
+}
+
+QScrollBar::add-line:vertical {
+  border: none;
+  background-color: #ffffff;
+  height: 10px;
+}
+
+QScrollBar::sub-line:vertical {
+  border: none;
+  background-color: #ffffff;
+  height: 10px;
+}
+
+QScrollBar::up-arrow:vertical {
+  image: url(:/qss_icons/rc/up_arrow_disabled.png);
+  width: 10px;
+  height: 10px;
+}
+
+QScrollBar::down-arrow:vertical {
+  image: url(:/qss_icons/rc/down_arrow_disabled.png);
+  width: 10px;
+  height: 10px;
+}
+
+QScrollBar:horizontal {
+  background-color: #ffffff;
+  height: 15px;
+  margin: 0px 15px 0px 15px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+
+QScrollBar::handle:horizontal {
+  background-color: #e6e6e6;
+  min-width: 5px;
+  border-radius: 4px; 
+}
+
+QScrollBar::add-line:horizontal {
+  border: none;
+  background-color: #ffffff;
+  width: 10px;
+}
+
+QScrollBar::sub-line:horizontal {
+  border: none;
+  background-color: #ffffff;
+  width: 10px;
+}
+
+QScrollBar::left-arrow:horizontal {
+  image: url(:/qss_icons/rc/left_arrow_disabled.png);
+  width: 10px;
+  height: 10px;  
+}
+
+QScrollBar::right-arrow:horizontal {
+  image: url(:/qss_icons/rc/right_arrow_disabled.png);
+  width: 10px;
+  height: 10px;
+}
+
+/* Styling for spin boxes */
+QSpinBox {
+  background-color: #ffffff;
+  color: #333333;
+  border: 1px solid #cccccc;
+  padding: 5px;
+  border-radius: 5px;  
+}
+
+QSpinBox::up-button {
+  width: 15px; 
+  border-image: url(:/qss_icons/rc/up_arrow_disabled.png);
+}
+
+QSpinBox::down-button {
+  width: 15px;
+  border-image: url(:/qss_icons/rc/down_arrow_disabled.png);
+}
+
+/* Styling for sliders */
+QSlider {
+  background-color: #ffffff;
+}
+
+QSlider::groove:horizontal {
+  height: 5px;
+  margin: 0px;
+  background-color: #e6e6e6;
+}
+
+QSlider::handle:horizontal {
+  background-color: #cccccc;
+  width: 15px;
+  margin: -5px 0px -5px 0px;
+}
+
+/* Styling for checkboxes */
+QCheckBox {
+  color: #333333;
+}
+
+QCheckBox::indicator {
+  width: 13px;
+  height: 13px;
+}
+
+QCheckBox::indicator:unchecked {
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+}
+
+QCheckBox::indicator:checked {
+  image: url(:/qss_icons/rc/checkbox_checked.png);
+}
+
+/* Styling for radio buttons */
+QRadioButton {
+  color: #333333;  
+}
+
+QRadioButton::indicator {
+  width: 13px;
+  height: 13px;
+}
+
+QRadioButton::indicator:unchecked {
+  border: 1px solid #cccccc;
+  border-radius: 7px;
+  background-color: #ffffff;
+}
+
+QRadioButton::indicator:checked {
+  border: 5px solid #e6e6e6;
+  border-radius: 7px;
+}
+
+/* Styling for tooltips */
+QToolTip {
+  background-color: #ffffff;   
+  color: #333333;
+  border: 1px solid #cccccc;
+}
+
+/* General toolbar styling */
+QToolBar{
+  border: none;
+  background: #f4f4f4;
+}
