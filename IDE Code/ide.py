@@ -1,124 +1,9 @@
-import sys
 import os
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
-from PyQt5.Qsci import QsciScintilla, QsciLexerPython
-
-class CodeEditor(QsciScintilla):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-
-        # Set the font to Courier New
-        font = QFont()
-        font.setFamily("Courier New")
-        font.setFixedPitch(True)
-        font.setPointSize(10)
-        self.setFont(font)
-        self.setMarginsFont(font)
-
-        # Margin 0 is used for line numbers
-        fontmetrics = QFontMetrics(font)
-        self.setMarginsFont(font)
-        self.setMarginWidth(0, fontmetrics.width("00000") + 6)
-        self.setMarginLineNumbers(0, True)
-        self.setMarginsBackgroundColor(QColor("#cccccc"))
-
-        # Brace matching: enable for a brace immediately before or after the current position
-        self.setBraceMatching(QsciScintilla.SloppyBraceMatch)
-
-        # Current line visible with special background color
-        self.setCaretLineVisible(True)
-        self.setCaretLineBackgroundColor(QColor("#ffe4e4"))
-
-        # Set Python lexer
-        lexer = QsciLexerPython()
-        lexer.setDefaultFont(font)
-        self.setLexer(lexer)
-
-        # Auto indentation
-        self.setAutoIndent(True)
-
-        # Set tab width
-        self.setIndentationsUseTabs(False)
-        self.setIndentationWidth(4)
-
-        # Autocompletion
-        self.setAutoCompletionSource(QsciScintilla.AcsAll)
-        self.setAutoCompletionThreshold(1)
-
-        # Folding margin
-        self.setFolding(QsciScintilla.BoxedTreeFoldStyle)
-
-        # Disable command key
-        self.SendScintilla(QsciScintilla.SCI_CLEARCMDKEY, ord('D')+ (ord('U')<<16))
-        self.SendScintilla(QsciScintilla.SCI_CLEARCMDKEY, ord('D')+ (ord('D')<<16))
-
-        # Multiline editing
-        self.SendScintilla(QsciScintilla.SCI_SETMULTIPASTE, 1)
-        self.SendScintilla(QsciScintilla.SCI_SETADDITIONALSELECTIONTYPING, 1)
-
-class TerminalEmulator(QWidget):
-    def __init__(self):
-        super(TerminalEmulator, self).__init__()
-
-        self.process = QProcess(self)
-        self.process.setProcessChannelMode(QProcess.MergedChannels)
-        self.process.start('cmd.exe')
-        self.terminal = QTextEdit(self)
-        self.terminal.setReadOnly(True)
-        self.command_line = CommandLineEdit(self)
-        self.command_line.returnPressed.connect(self.execute_command)
-
-        layout = QVBoxLayout(self)
-        layout.addWidget(self.terminal)
-        layout.addWidget(self.command_line)
-
-        self.process.readyRead.connect(self.update_terminal)
-        self.process.finished.connect(self.process_finished)
-
-        self.update_prompt()
-
-    def execute_command(self):
-        command = self.command_line.text()
-        self.command_line.add_to_history(command)
-        if command.strip() == 'cls':
-            self.terminal.clear()
-        else:
-            self.terminal.append(command)
-            self.process.write((command + '\n').encode())
-        self.command_line.clear()
-
-    def update_terminal(self):
-        output = self.process.readAll().data().decode(errors='ignore')
-        self.terminal.append(output)
-
-    def process_finished(self):
-        self.terminal.append("Process finished.")
-        self.update_prompt()
-
-    def update_prompt(self):
-        self.command_line.setPlaceholderText('>')
-
-class CommandLineEdit(QLineEdit):
-    def __init__(self, *args, **kwargs):
-        super(CommandLineEdit, self).__init__(*args, **kwargs)
-        self.history = []
-        self.history_index = 0
-
-    def add_to_history(self, command):
-        self.history.append(command)
-        self.history_index = len(self.history)
-
-    def keyPressEvent(self, event):
-        if event.key() == Qt.Key_Up and self.history:
-            self.history_index = max(0, self.history_index - 1)
-            self.setText(self.history[self.history_index])
-        elif event.key() == Qt.Key_Down and self.history:
-            self.history_index = min(len(self.history) - 1, self.history_index + 1)
-            self.setText(self.history[self.history_index])
-        else:
-            super(CommandLineEdit, self).keyPressEvent(event)
+from code_editor import CodeEditor
+from terminal_emulator import TerminalEmulator, CommandLineEdit
 
 class IDE(QMainWindow):
     def __init__(self):
@@ -460,8 +345,3 @@ class IDE(QMainWindow):
             self.load_theme('C:/Users/root/Desktop/Project/Editor/light.css')
         self.settings.setValue('last_theme', theme)  # Save last theme
 
-
-app = QApplication(sys.argv)
-app.setStyle('Fusion')
-ide = IDE()
-sys.exit(app.exec_())
